@@ -12,6 +12,8 @@
 
 namespace Yandex\Common;
 
+use ReturnTypeWillChange;
+
 /**
  * Class ObjectModel
  *
@@ -31,7 +33,8 @@ class ObjectModel extends Model implements \Iterator, \Countable
         return current($this->collection);
     }
 
-    public function next(): void
+    #[ReturnTypeWillChange]
+    public function next(): mixed
     {
         $this->innerCounter++;
         return next($this->collection);
