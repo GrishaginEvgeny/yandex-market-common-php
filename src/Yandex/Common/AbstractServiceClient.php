@@ -223,10 +223,10 @@ abstract class AbstractServiceClient extends AbstractPackage
             if ($headers && is_array($headers)) {
                 $defaultOptions["headers"] += $headers;
             }
-            if (!empty($this->getAccessToken())) {
-                $defaultOptions['headers']['Authorization'] = 'OAuth ' . $this->getAccessToken();
-            } elseif (!empty($this->getApiKeyToken())) {
+            if (!empty($this->getApiKeyToken())) {
                 $defaultOptions['headers']['Api-Key'] = $this->getApiKeyToken();
+            } elseif (!empty($this->getAccessToken())) {
+                $defaultOptions['headers']['Authorization'] = 'OAuth ' . $this->getAccessToken();
             }
             if ($this->getProxy()) {
                 $defaultOptions['proxy'] = $this->getProxy();
